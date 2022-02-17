@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  db: 
+    image: mysql:5.7.37
+    restart: always
+    volumes:
+      - datadb:/var/lib/mysql
+      - ./env/mysqlconfig.cnf:/etc/mysql/conf.d/custom.cnf
+    # environment:
+      # MYSQL_ROOT_PASSWORD:root
+      # - MYSQL_ROOT_PASSWORD=root
+      # - MYSQL_DATABASE=test
+    env_file:
+      - ./env/db.env
+    ports:
+      - 33066:3306
+    
+  # backend:
+  # frontend:
+volumes:
+  datadb:
+  
+
