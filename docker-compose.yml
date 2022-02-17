@@ -14,9 +14,40 @@ services:
       - ./env/db.env
     ports:
       - 33066:3306
-    
-  # backend:
-  # frontend:
+    # container_name: db
+  backend:
+    build: ./backend
+    # build: 
+      # context: ./backend
+      # dockerfile: Dockerfile
+      # args:
+      #   - name=value
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend:/app
+    # stdin_open: true
+    # tty: true
+    depends_on:
+      - db
+    # container_name: backend
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend/src:/app/src
+      # - /app/node_modules
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    # container_name: frontend
+
+
 volumes:
   datadb:
   

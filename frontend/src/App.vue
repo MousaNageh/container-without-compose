@@ -3,6 +3,7 @@
     <pre v-if="data">
       {{JSON.stringify(data,null)}}
     </pre>
+    <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod sequi impedit veniam quidem dignissimos, cupiditate ex optio nulla aliquam, ratione recusandae quos dolore, iste consequatur. Natus cumque dolores ea rem?</h1>
     <button @click="getData">hello from </button>
     
   </div>
